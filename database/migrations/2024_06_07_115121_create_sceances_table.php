@@ -9,11 +9,14 @@ return new class extends Migration
 	/**
 	 * Run the migrations.
 	 */
-	public function up(): void
+	public function up()
 	{
-		Schema::create('cinemas', function (Blueprint $table) {
-			$table->uuid('id')->primary();
-			$table->string('name', 128);
+		Schema::create('sceances', function (Blueprint $table) {
+			$table->uuid('uid')->primary();
+			$table->uuid('room_uid');
+			$table->foreign('room_uid')->references('uid')->on('rooms')->onDelete('cascade');
+			$table->uuid('movie');
+			$table->dateTime('date');
 			$table->timestamps();
 		});
 	}
@@ -23,6 +26,6 @@ return new class extends Migration
 	 */
 	public function down(): void
 	{
-		Schema::dropIfExists('cinemas');
+		Schema::dropIfExists('sceances');
 	}
 };

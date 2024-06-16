@@ -10,13 +10,11 @@ class Cinema extends Model
 {
 	use HasFactory;
 
-	public $keyType = 'string';
+	protected $keyType = 'string';
 	public $incrementing = false;
 
-	public static function booted(): void
+	public function rooms()
 	{
-		static::creating(function ($cinema) {
-			$cinema->id = Uuid::uuid4();
-		});
+		return $this->hasMany(Room::class, 'cinema_uid', 'uid');
 	}
 }
