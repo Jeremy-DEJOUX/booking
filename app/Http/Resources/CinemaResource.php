@@ -15,7 +15,7 @@ class CinemaResource extends JsonResource
 	public function toArray(Request $request): array
 	{
 		return [
-			'id' => $this->id,
+			'id' => $this->uid,
 			'name' => $this->name
 		];
 	}
