@@ -1,6 +1,5 @@
 <?php
 
-// database/factories/RoomFactory.php
 namespace Database\Factories;
 
 use App\Models\Room;
@@ -15,9 +14,9 @@ class RoomFactory extends Factory
 	{
 		return [
 			'uid' => $this->faker->uuid,
-			'cinema_uid' => Cinema::factory(), // Générer un cinéma associé
+			'cinema_uid' => Cinema::factory(),
 			'name' => $this->faker->word,
-			'seats' => $this->faker->numberBetween(50, 300),
+			'seats' => $this->faker->numberBetween(1, 10),
 		];
 	}
 }

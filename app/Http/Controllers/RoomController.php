@@ -23,18 +23,19 @@ class RoomController extends Controller
 	public function store(Request $request, $cinemaUid)
 	{
 		$request->validate([
-			'uid' => 'required|uuid',
 			'name' => 'required|string|max:128',
 			'seats' => 'required|integer|min:1',
+			'createdAt' => 'nullable|date',
+			'updatedAt' => 'nullable|date',
 		]);
-
-		$room = Room::create([
-			'uid' => $request->uid,
-			'cinema_uid' => $cinemaUid,
-			'name' => $request->name,
-			'seats' => $request->seats,
-		]);
-
+		$room = new Room();
+		$room->uid = Str::uuid()->toString();
+		$room->cinema_uid = $cinemaUid;
+		$room->name = $request->name;
+		$room->seats = $request->seats;
+		$room->created_at = $request->createdAt ?? now();
+		$room->updated_at = $request->updatedAt ?? now();
+		$room->save();
 		return response()->json($room, 201);
 	}
 
@@ -57,6 +58,6 @@ class RoomController extends Controller
 		$room = Room::where('cinema_uid', $cinemaUid)->where('uid', $uid)->firstOrFail();
 		$room->delete();
 
-		return response()->noContent();
+		return response()->json('Room deleted', 200);
 	}
 }

@@ -1,11 +1,9 @@
 <?php
 
-// database/factories/CinemaFactory.php
 namespace Database\Factories;
 
 use App\Models\Cinema;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class CinemaFactory extends Factory
 {

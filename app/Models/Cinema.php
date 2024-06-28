@@ -11,6 +11,7 @@ class Cinema extends Model
 	use HasFactory;
 
 	protected $keyType = 'string';
+	protected $primaryKey = 'uid';
 	public $incrementing = false;
 
 	public function rooms()

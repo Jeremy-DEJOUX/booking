@@ -13,7 +13,7 @@ class ReservationSeeder extends Seeder
 	{
 		// Assurez-vous que des séances existent avant de créer des réservations
 		Sceance::all()->each(function ($sceance) {
-			Reservation::factory()->count(10)->create(['sceance_uid' => $sceance->uid]);
+			Reservation::factory()->count(1)->create(['sceance_uid' => $sceance->uid]);
 		});
 	}
 }
