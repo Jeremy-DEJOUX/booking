@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
-use Ramsey\Uuid\Uuid;
 use App\Models\Cinema;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CinemaResource;
@@ -17,7 +17,7 @@ class CinemaController extends Controller
 
 	public function show($id)
 	{
-		$cinema = Cinema::find($id);
+		$cinema = Cinema::where('uid', $id)->first();
 		if (!$cinema) {
 			return response()->json(['message' => 'Cinema not found'], 404);
 		}
@@ -32,6 +32,7 @@ class CinemaController extends Controller
 		]);
 
 		$cinema = new Cinema;
+		$cinema->uid = Str::uuid()->toString();
 		$cinema->name = $request->name;
 		$cinema->save();
 
@@ -44,7 +45,7 @@ class CinemaController extends Controller
 			'name' => 'required|string|max:128'
 		]);
 
-		$cinema = Cinema::find($id);
+		$cinema = Cinema::where('uid', $id)->first();
 
 		if (!$cinema) {
 			return response()->json(['message' => 'Cinema not found', 404]);
@@ -58,7 +59,7 @@ class CinemaController extends Controller
 
 	public function remove($id)
 	{
-		$cinema = Cinema::find($id);
+		$cinema = Cinema::where('uid', $id)->first();
 
 		if (!$cinema) {
 			return response()->json(['message' => 'Cinema not found'], 404);

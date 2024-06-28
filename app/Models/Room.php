@@ -11,7 +11,10 @@ class Room extends Model
 	use HasFactory;
 
 	protected $keyType = 'string';
+	protected $primaryKey = 'uid';
+
 	public $incrementing = false;
+	protected $fillable = ['name', 'seats', 'cinema_uid', 'created_at', 'updated_at'];
 
 	public function cinema()
 	{

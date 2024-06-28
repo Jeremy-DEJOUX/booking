@@ -1,7 +1,5 @@
 <?php
 
-// database/factories/SceanceFactory.php
-// database/factories/SceanceFactory.php
 namespace Database\Factories;
 
 use App\Models\Sceance;
@@ -17,7 +15,7 @@ class SceanceFactory extends Factory
 		return [
 			'uid' => $this->faker->uuid,
 			'room_uid' => Room::factory(),
-			'movie' => $this->faker->numberBetween(1, 100), // Utilise des IDs de films entre 1 et 100
+			'movie' => $this->faker->numberBetween(1, 10),
 			'date' => $this->faker->dateTimeBetween('+0 days', '+1 year'),
 		];
 	}

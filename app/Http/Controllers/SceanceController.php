@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sceance;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -23,40 +24,49 @@ class SceanceController extends Controller
 	public function store(Request $request, $cinemaUid, $roomUid)
 	{
 		$request->validate([
-			'uid' => 'required|uuid',
-			'movie' => 'required|uuid',
+			'movie' => 'required|string|max:255',
 			'date' => 'required|date',
 		]);
 
-		$sceance = Sceance::create([
-			'uid' => $request->uid,
-			'room_uid' => $roomUid,
-			'movie' => $request->movie,
-			'date' => $request->date,
-		]);
+		$sceance = new Sceance();
+		$sceance->uid = Str::uuid()->toString();
+		$sceance->room_uid = $roomUid;
+		$sceance->movie = $request->movie;
+		$sceance->date = Carbon::parse($request->date)->format('Y-m-d H:i:s');
+		$sceance->save();
 
 		return response()->json($sceance, 201);
 	}
 
+
 	public function update(Request $request, $cinemaUid, $roomUid, $uid)
 	{
-		$sceance = Sceance::where('room_uid', $roomUid)->where('uid', $uid)->firstOrFail();
-
 		$request->validate([
-			'movie' => 'uuid',
-			'date' => 'date',
+			'movie' => 'sometimes|required|string|max:255',
+			'date' => 'sometimes|required|date',
 		]);
 
-		$sceance->update($request->only(['movie', 'date']));
+		$sceance = Sceance::where('room_uid', $roomUid)->where('uid', $uid)->firstOrFail();
+
+		if ($request->has('movie')) {
+			$sceance->movie = $request->movie;
+		}
+
+		if ($request->has('date')) {
+			$sceance->date = Carbon::parse($request->date)->format('Y-m-d H:i:s');
+		}
+
+		$sceance->save();
 
 		return response()->json($sceance, 200);
 	}
+
 
 	public function destroy($cinemaUid, $roomUid, $uid)
 	{
 		$sceance = Sceance::where('room_uid', $roomUid)->where('uid', $uid)->firstOrFail();
 		$sceance->delete();
 
-		return response()->noContent();
+		return response()->json('delete', 200);
 	}
 }

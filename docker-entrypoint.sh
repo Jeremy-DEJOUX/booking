@@ -15,15 +15,6 @@ else
     exit 1
 fi
 
-# Exécuter les seeders
-echo "Running seeders..."
-if php artisan db:seed --force; then
-    echo "Seeders ran successfully."
-else
-    echo "Seeders failed." >&2
-    exit 1
-fi
-
 # Lancer PHP-FPM
 echo "Starting PHP-FPM..."
 exec php-fpm

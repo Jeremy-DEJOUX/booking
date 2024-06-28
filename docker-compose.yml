@@ -12,6 +12,8 @@ services:
       - ./php.ini:/usr/local/etc/php/php.ini
     networks:
       - laravel_network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   webserver:
     image: nginx:alpine

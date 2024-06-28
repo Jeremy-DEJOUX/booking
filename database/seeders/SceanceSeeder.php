@@ -13,7 +13,7 @@ class SceanceSeeder extends Seeder
 	{
 		// Assurez-vous que des salles existent avant de créer des séances
 		Room::all()->each(function ($room) {
-			Sceance::factory()->count(5)->create(['room_uid' => $room->uid]);
+			Sceance::factory()->count(1)->create(['room_uid' => $room->uid]);
 		});
 	}
 }

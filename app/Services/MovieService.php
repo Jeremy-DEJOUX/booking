@@ -3,29 +3,22 @@
 // app/Services/MovieService.php
 namespace App\Services;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
+use Illuminate\Support\Facades\Http;
+
 
 class MovieService
 {
-	protected $client;
-	protected $baseUri;
-
-	public function __construct()
-	{
-		$this->client = new Client();
-		$this->baseUri = env('MOVIE_SERVICE_BASE_URI', 'http://localhost:8080');
-	}
 
 	public function getMovie($uid)
 	{
 		try {
-			$response = $this->client->request('GET', "{$this->baseUri}/movies/{$uid}");
-			return json_decode($response->getBody()->getContents(), true);
-		} catch (RequestException $e) {
-			if ($e->hasResponse()) {
-				return json_decode($e->getResponse()->getBody()->getContents(), true);
+			$response = Http::get("http://host.docker.internal:8000/movies/{$uid}");
+			if ($response->successful()) {
+				return $response->json();
+			} else {
+				return ['error' => 'Movie not found'];
 			}
+		} catch (\Exception $e) {
 			return ['error' => 'Service not available'];
 		}
 	}
