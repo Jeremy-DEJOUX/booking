@@ -14,7 +14,7 @@ Avant de commencer, assurez-vous d'avoir installé les outils suivants sur votre
 1. **Clonez le dépôt** :
 
     ```sh
-    git clone https://github.com/votre-utilisateur/votre-projet.git
+    git clone https://github.com/asiatlek/movie
     cd votre-projet
     ```
     
