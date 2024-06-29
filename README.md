@@ -17,14 +17,20 @@ Avant de commencer, assurez-vous d'avoir installé les outils suivants sur votre
     git clone https://github.com/votre-utilisateur/votre-projet.git
     cd votre-projet
     ```
+    
+    ```sh
+    git clone https://github.com/emmanuel-cabassot/auth/tree/main
+    cd votre-projet
+    ```
+    
 
-2. **Créez un fichier `.env`** à la racine du projet en copiant le fichier `.env.example` :
+1. **Créez un fichier `.env`** à la racine du projet en copiant le fichier `.env.example` :
 
     ```sh
     cp .env.example .env
     ```
 
-3. **Modifiez le fichier `.env`** pour configurer la base de données :
+2. **Modifiez le fichier `.env`** pour configurer la base de données :
 
     ```env
     DB_CONNECTION=mysql
