@@ -2,6 +2,8 @@
 
 Ce projet est une API Laravel configurée pour fonctionner avec Docker, MySQL et RabbitMQ. Ce guide vous expliquera comment configurer et démarrer le projet.
 
+Vous trouverez les export de l'api via postman pour le Movie / Auth / Reservation
+
 ## Prérequis
 
 Avant de commencer, assurez-vous d'avoir installé les outils suivants sur votre machine :
