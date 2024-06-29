@@ -1,0 +1,611 @@
+{
+	"info": {
+		"_postman_id": "c195e95e-a8ef-41d9-b7f0-73515c68f24a",
+		"name": "Cinema",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36548672"
+	},
+	"item": [
+		{
+			"name": "getReservationsByMovie",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTk0MDI4NDcsImV4cCI6MTcxOTQwNjQ0Nywicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJsb2dpbiI6InRlc3QifQ.YXVNnjt7QmMx_rAPMo-Ycy-59JAquQ-Ko3nVG7MY4x6SDrw1gqrY4JPT7olYub81U9g6dLLgB1YNB1ExswgD8raTWiBG5CiN0ukdQ6gx3uwrGaguz4UrbSKXQsrm7dcs6uHzAayd6bCsfK_5RcO09yWOQOhKzOqEnFg__UK0j-7z0VBIpB1VT0ZS-g7xanEbfjGdnT95OGFsdgN563rglgV96nOJ671yXpW4Jq4APw32mMcV2US9EEc4P6zGPwiG5Ce4sEDDtpx6tKlg3C1tP9eQevS3Ilc1plXjS1obwq-89AmwJt-Ajw9D9O_ciAMS6BzgJbJqeqxKsm0O_3BptA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/movie/4/reservations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"movie",
+						"4",
+						"reservations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addCinema",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTk0MDI4NDcsImV4cCI6MTcxOTQwNjQ0Nywicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJsb2dpbiI6InRlc3QifQ.YXVNnjt7QmMx_rAPMo-Ycy-59JAquQ-Ko3nVG7MY4x6SDrw1gqrY4JPT7olYub81U9g6dLLgB1YNB1ExswgD8raTWiBG5CiN0ukdQ6gx3uwrGaguz4UrbSKXQsrm7dcs6uHzAayd6bCsfK_5RcO09yWOQOhKzOqEnFg__UK0j-7z0VBIpB1VT0ZS-g7xanEbfjGdnT95OGFsdgN563rglgV96nOJ671yXpW4Jq4APw32mMcV2US9EEc4P6zGPwiG5Ce4sEDDtpx6tKlg3C1tP9eQevS3Ilc1plXjS1obwq-89AmwJt-Ajw9D9O_ciAMS6BzgJbJqeqxKsm0O_3BptA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"New Cinema\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/cinema",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"cinema"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addReservations",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sceance\": \"02f67919-4e6e-3e72-b8b0-6a56c7dfb44e\",\n    \"nbSeats\": 1,\n    \"room\": \"fa1590e0-00d8-37bc-a4f9-9eaaf7b36962\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/movie/4/reservations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"movie",
+						"4",
+						"reservations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "confirmResa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/reservations/55594ace-4aeb-4da7-b901-e715fcf267ba/confirm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"reservations",
+						"55594ace-4aeb-4da7-b901-e715fcf267ba",
+						"confirm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "infoResa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/reservations/55594ace-4aeb-4da7-b901-e715fcf267ba",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"reservations",
+						"55594ace-4aeb-4da7-b901-e715fcf267ba"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCinema",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/cinema",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"cinema"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCinemaById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/cinema/5033b634-2d3b-3042-acb0-b2928418dac7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"cinema",
+						"5033b634-2d3b-3042-acb0-b2928418dac7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "removeCinema",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTk1NTg0ODAsImV4cCI6MTcxOTU2MjA4MCwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJsb2dpbiI6InRlc3QifQ.K6hv_0f1BEasj3NHP8OHZ1dcAjbJuqYjX5C_9rDMtVH-7Lhg-08xYAEGomy5YTBzHfPaTPYhGie_opv6Qww-F2SWgDm3oN0D_knhFuPZB00GdPtybad9dtGwEMM8TZoatjA828LeSyi5hvgqzNeisjEOg-0RqsRW_oy4Ti-ufbuMAo8QFnP3qHvB_FpLNx2OSLpDFpWVryEUR5KGIJtTnoZx3Rxzyj-Bz547b2T8VNbFaCtnwBvRBFFAhUEZzc6woJeV0mSigpQ69pdskzZ7dSaKFC7vz4nP0A_oM5T_ekbOd2m3PCuCnoWVfkroOArDm2f4NFA6PTWR_UyrrZwx-w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/cinema/5033b634-2d3b-3042-acb0-b2928418dac7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"cinema",
+						"5033b634-2d3b-3042-acb0-b2928418dac7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRoomsByCinema",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/cinema/582ee022-0d18-3de6-904f-49ae48513188/rooms",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"cinema",
+						"582ee022-0d18-3de6-904f-49ae48513188",
+						"rooms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRoomById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/cinema/582ee022-0d18-3de6-904f-49ae48513188/rooms/54894c95-0caf-3fcc-b98f-6653eaae3d78",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"cinema",
+						"582ee022-0d18-3de6-904f-49ae48513188",
+						"rooms",
+						"54894c95-0caf-3fcc-b98f-6653eaae3d78"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createRooms",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTk1NTg0ODAsImV4cCI6MTcxOTU2MjA4MCwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJsb2dpbiI6InRlc3QifQ.K6hv_0f1BEasj3NHP8OHZ1dcAjbJuqYjX5C_9rDMtVH-7Lhg-08xYAEGomy5YTBzHfPaTPYhGie_opv6Qww-F2SWgDm3oN0D_knhFuPZB00GdPtybad9dtGwEMM8TZoatjA828LeSyi5hvgqzNeisjEOg-0RqsRW_oy4Ti-ufbuMAo8QFnP3qHvB_FpLNx2OSLpDFpWVryEUR5KGIJtTnoZx3Rxzyj-Bz547b2T8VNbFaCtnwBvRBFFAhUEZzc6woJeV0mSigpQ69pdskzZ7dSaKFC7vz4nP0A_oM5T_ekbOd2m3PCuCnoWVfkroOArDm2f4NFA6PTWR_UyrrZwx-w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"seats\": 20,\n    \"name\": \"Test\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/cinema/bb167420-5102-3a71-97b3-bdceba19dc04/rooms",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"cinema",
+						"bb167420-5102-3a71-97b3-bdceba19dc04",
+						"rooms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateRooms",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTk1NTg0ODAsImV4cCI6MTcxOTU2MjA4MCwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJsb2dpbiI6InRlc3QifQ.K6hv_0f1BEasj3NHP8OHZ1dcAjbJuqYjX5C_9rDMtVH-7Lhg-08xYAEGomy5YTBzHfPaTPYhGie_opv6Qww-F2SWgDm3oN0D_knhFuPZB00GdPtybad9dtGwEMM8TZoatjA828LeSyi5hvgqzNeisjEOg-0RqsRW_oy4Ti-ufbuMAo8QFnP3qHvB_FpLNx2OSLpDFpWVryEUR5KGIJtTnoZx3Rxzyj-Bz547b2T8VNbFaCtnwBvRBFFAhUEZzc6woJeV0mSigpQ69pdskzZ7dSaKFC7vz4nP0A_oM5T_ekbOd2m3PCuCnoWVfkroOArDm2f4NFA6PTWR_UyrrZwx-w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"seats\": 20,\n    \"name\": \"Autre\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/cinema/582ee022-0d18-3de6-904f-49ae48513188/rooms/fcbd6698-c4c5-48ea-ad8e-eeaf2fb02b93",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"cinema",
+						"582ee022-0d18-3de6-904f-49ae48513188",
+						"rooms",
+						"fcbd6698-c4c5-48ea-ad8e-eeaf2fb02b93"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteRooms",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTk1NTg0ODAsImV4cCI6MTcxOTU2MjA4MCwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJsb2dpbiI6InRlc3QifQ.K6hv_0f1BEasj3NHP8OHZ1dcAjbJuqYjX5C_9rDMtVH-7Lhg-08xYAEGomy5YTBzHfPaTPYhGie_opv6Qww-F2SWgDm3oN0D_knhFuPZB00GdPtybad9dtGwEMM8TZoatjA828LeSyi5hvgqzNeisjEOg-0RqsRW_oy4Ti-ufbuMAo8QFnP3qHvB_FpLNx2OSLpDFpWVryEUR5KGIJtTnoZx3Rxzyj-Bz547b2T8VNbFaCtnwBvRBFFAhUEZzc6woJeV0mSigpQ69pdskzZ7dSaKFC7vz4nP0A_oM5T_ekbOd2m3PCuCnoWVfkroOArDm2f4NFA6PTWR_UyrrZwx-w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"seats\": 20,\n    \"name\": \"Autre\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/cinema/79acfa6f-ba6b-3f97-b69b-b40b72037554/rooms/a64822e4-e3bb-30ed-b4ec-27d699659397",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"cinema",
+						"79acfa6f-ba6b-3f97-b69b-b40b72037554",
+						"rooms",
+						"a64822e4-e3bb-30ed-b4ec-27d699659397"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getSeance",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTk1NTg0ODAsImV4cCI6MTcxOTU2MjA4MCwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJsb2dpbiI6InRlc3QifQ.K6hv_0f1BEasj3NHP8OHZ1dcAjbJuqYjX5C_9rDMtVH-7Lhg-08xYAEGomy5YTBzHfPaTPYhGie_opv6Qww-F2SWgDm3oN0D_knhFuPZB00GdPtybad9dtGwEMM8TZoatjA828LeSyi5hvgqzNeisjEOg-0RqsRW_oy4Ti-ufbuMAo8QFnP3qHvB_FpLNx2OSLpDFpWVryEUR5KGIJtTnoZx3Rxzyj-Bz547b2T8VNbFaCtnwBvRBFFAhUEZzc6woJeV0mSigpQ69pdskzZ7dSaKFC7vz4nP0A_oM5T_ekbOd2m3PCuCnoWVfkroOArDm2f4NFA6PTWR_UyrrZwx-w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"movie\": \"Movie Title\",\n    \"date\": \"2024-06-28T12:00:00Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/cinema/582ee022-0d18-3de6-904f-49ae48513188/rooms/54ef60cf-ba86-367e-9555-4956b486d522/sceances",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"cinema",
+						"582ee022-0d18-3de6-904f-49ae48513188",
+						"rooms",
+						"54ef60cf-ba86-367e-9555-4956b486d522",
+						"sceances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createSeance",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTk1NTg0ODAsImV4cCI6MTcxOTU2MjA4MCwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJsb2dpbiI6InRlc3QifQ.K6hv_0f1BEasj3NHP8OHZ1dcAjbJuqYjX5C_9rDMtVH-7Lhg-08xYAEGomy5YTBzHfPaTPYhGie_opv6Qww-F2SWgDm3oN0D_knhFuPZB00GdPtybad9dtGwEMM8TZoatjA828LeSyi5hvgqzNeisjEOg-0RqsRW_oy4Ti-ufbuMAo8QFnP3qHvB_FpLNx2OSLpDFpWVryEUR5KGIJtTnoZx3Rxzyj-Bz547b2T8VNbFaCtnwBvRBFFAhUEZzc6woJeV0mSigpQ69pdskzZ7dSaKFC7vz4nP0A_oM5T_ekbOd2m3PCuCnoWVfkroOArDm2f4NFA6PTWR_UyrrZwx-w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"movie\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/cinema/582ee022-0d18-3de6-904f-49ae48513188/rooms/116f0c38-8a4c-3fbb-8b9c-92f89f878ff2/sceances",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"cinema",
+						"582ee022-0d18-3de6-904f-49ae48513188",
+						"rooms",
+						"116f0c38-8a4c-3fbb-8b9c-92f89f878ff2",
+						"sceances"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateSceance",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTk1NTg0ODAsImV4cCI6MTcxOTU2MjA4MCwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJsb2dpbiI6InRlc3QifQ.K6hv_0f1BEasj3NHP8OHZ1dcAjbJuqYjX5C_9rDMtVH-7Lhg-08xYAEGomy5YTBzHfPaTPYhGie_opv6Qww-F2SWgDm3oN0D_knhFuPZB00GdPtybad9dtGwEMM8TZoatjA828LeSyi5hvgqzNeisjEOg-0RqsRW_oy4Ti-ufbuMAo8QFnP3qHvB_FpLNx2OSLpDFpWVryEUR5KGIJtTnoZx3Rxzyj-Bz547b2T8VNbFaCtnwBvRBFFAhUEZzc6woJeV0mSigpQ69pdskzZ7dSaKFC7vz4nP0A_oM5T_ekbOd2m3PCuCnoWVfkroOArDm2f4NFA6PTWR_UyrrZwx-w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"movie\": \"Change\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/cinema/582ee022-0d18-3de6-904f-49ae48513188/rooms/54ef60cf-ba86-367e-9555-4956b486d522/sceances/bc002735-ea9a-4683-a17f-51d800b0fb60",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"cinema",
+						"582ee022-0d18-3de6-904f-49ae48513188",
+						"rooms",
+						"54ef60cf-ba86-367e-9555-4956b486d522",
+						"sceances",
+						"bc002735-ea9a-4683-a17f-51d800b0fb60"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteSceance",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MTk1NTg0ODAsImV4cCI6MTcxOTU2MjA4MCwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJsb2dpbiI6InRlc3QifQ.K6hv_0f1BEasj3NHP8OHZ1dcAjbJuqYjX5C_9rDMtVH-7Lhg-08xYAEGomy5YTBzHfPaTPYhGie_opv6Qww-F2SWgDm3oN0D_knhFuPZB00GdPtybad9dtGwEMM8TZoatjA828LeSyi5hvgqzNeisjEOg-0RqsRW_oy4Ti-ufbuMAo8QFnP3qHvB_FpLNx2OSLpDFpWVryEUR5KGIJtTnoZx3Rxzyj-Bz547b2T8VNbFaCtnwBvRBFFAhUEZzc6woJeV0mSigpQ69pdskzZ7dSaKFC7vz4nP0A_oM5T_ekbOd2m3PCuCnoWVfkroOArDm2f4NFA6PTWR_UyrrZwx-w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"movie\": \"Change\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/cinema/582ee022-0d18-3de6-904f-49ae48513188/rooms/54894c95-0caf-3fcc-b98f-6653eaae3d78/sceances/c1e4aa4b-45cc-3d6a-9234-6c4496151075",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"cinema",
+						"582ee022-0d18-3de6-904f-49ae48513188",
+						"rooms",
+						"54894c95-0caf-3fcc-b98f-6653eaae3d78",
+						"sceances",
+						"c1e4aa4b-45cc-3d6a-9234-6c4496151075"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
